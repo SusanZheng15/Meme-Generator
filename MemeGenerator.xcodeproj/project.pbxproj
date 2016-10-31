@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B251DF71DC7B59200CEF7A2 /* EditMeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B251DF61DC7B59200CEF7A2 /* EditMeme.swift */; };
 		1B874D631DC790E30091326D /* Datastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B874D621DC790E30091326D /* Datastore.swift */; };
 		1B874D651DC791A90091326D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B874D641DC791A90091326D /* Meme.swift */; };
 		1B874D671DC798BD0091326D /* memeCollectionCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B874D661DC798BD0091326D /* memeCollectionCellCollectionViewCell.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B251DF61DC7B59200CEF7A2 /* EditMeme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMeme.swift; sourceTree = "<group>"; };
 		1B874D621DC790E30091326D /* Datastore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datastore.swift; sourceTree = "<group>"; };
 		1B874D641DC791A90091326D /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		1B874D661DC798BD0091326D /* memeCollectionCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memeCollectionCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				1B874D641DC791A90091326D /* Meme.swift */,
 				1BC2DFC91DC500F400CBD7F2 /* APIClient.swift */,
 				1BCCF4941DC29503008533B4 /* Main.storyboard */,
+				1B251DF61DC7B59200CEF7A2 /* EditMeme.swift */,
 				1B874D661DC798BD0091326D /* memeCollectionCellCollectionViewCell.swift */,
 				1BCCF4971DC29503008533B4 /* Assets.xcassets */,
 				1BCCF4991DC29503008533B4 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B251DF71DC7B59200CEF7A2 /* EditMeme.swift in Sources */,
 				1B874D671DC798BD0091326D /* memeCollectionCellCollectionViewCell.swift in Sources */,
 				1BCCF4931DC29503008533B4 /* ViewController.swift in Sources */,
 				1B874D631DC790E30091326D /* Datastore.swift in Sources */,

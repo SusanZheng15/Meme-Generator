@@ -45,6 +45,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="memeImages" destination="vbm-Fk-903" id="fZk-rj-iPu"/>
+                                            <segue destination="Pbt-81-Ama" kind="show" identifier="memeSegue" id="44m-QQ-ICM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -66,6 +67,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2015.2" y="101.19940029985008"/>
+        </scene>
+        <!--Edit Meme-->
+        <scene sceneID="v2F-4D-Bdd">
+            <objects>
+                <viewController id="Pbt-81-Ama" customClass="EditMeme" customModule="MemeGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="86l-6I-GhM"/>
+                        <viewControllerLayoutGuide type="bottom" id="IIk-6o-UKS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ocb-pQ-1up">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="he4-9x-4Ev"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="he4-9x-4Ev" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="32" id="0bV-7R-14V"/>
+                            <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" constant="-64" id="dBI-f4-Ygl"/>
+                            <constraint firstItem="he4-9x-4Ev" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="fFM-xS-o7W"/>
+                            <constraint firstItem="he4-9x-4Ev" firstAttribute="centerX" secondItem="Ocb-pQ-1up" secondAttribute="centerX" id="kwp-Le-aWZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="memeImage" destination="he4-9x-4Ev" id="N5r-8q-B6Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="znL-cj-0pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2941.5999999999999" y="100.29985007496252"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MwT-At-rC3">

@@ -22,7 +22,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.memeCollectionView.delegate = self
         self.memeCollectionView.dataSource = self
     
-        
+        self.title = "Popular Memes"
         store.getMemes { (array) in
             
             OperationQueue.main.addOperation({ 
@@ -84,6 +84,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             itemsCount = 3.0
         }
         return CGSize(width: self.view.frame.width/itemsCount - 1, height: 240/130 * (self.view.frame.width/itemsCount - 1));
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "memeSegue"
+        {
+            let destinationVC = segue.destination as! EditMeme
+            
+            let selectedCell = memeCollectionView.indexPath(for: sender as! memeCollectionCellCollectionViewCell)
+            
+            guard let path = selectedCell else {return}
+            
+            destinationVC.selectedMeme = self.store.memeArray[path.row]
+            
+        }
     }
 
 }

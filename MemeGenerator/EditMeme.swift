@@ -16,17 +16,15 @@ class EditMeme: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var memeLabel: UILabel!
-    
-    var selectedMeme : meme?
-    let memeImageOutput = AVCapturePhotoOutput()
-    
     @IBOutlet weak var editTextField: UITextField!
     @IBOutlet weak var textSlider: UISlider!
-    
     @IBOutlet weak var colorSilder: UISlider!
+    
+    var selectedMeme : meme?
+    
     var textViewTouched = UIGestureRecognizer()
     
-     var location = CGPoint(x: 0, y: 0)
+    var location = CGPoint(x: 0, y: 0)
     
     override func viewDidLoad()
     {
@@ -40,16 +38,22 @@ class EditMeme: UIViewController, UITextFieldDelegate
         {
             self.memeImage.image = UIImage.init(data: data)
         }
+        
         self.memeLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         self.textViewTouched = UIGestureRecognizer(target: self, action: #selector(EditMeme.touchesBegan(_:with:)))
         
         self.memeLabel.addGestureRecognizer(textViewTouched)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "save", style: .done, target: self, action: #selector(EditMeme.saveMeme))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "righticon (2).png"), style: .done, target: self, action: #selector(EditMeme.saveMeme))
         
-        
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "customBackButton (1).png"), style: .done, target: self, action: #selector(EditMeme.backButtonPressed(sender:)))
+    }
+    
+    
+    func backButtonPressed(sender:UIButton)
+    {
+        navigationController?.popViewController(animated: true)
     }
     
     func saveMeme()
@@ -65,11 +69,25 @@ class EditMeme: UIViewController, UITextFieldDelegate
         let image = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
-        //Save it to the camera roll
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
        self.navigationController?.isNavigationBarHidden = false
+        
+        
+         let saveMemeAlertController = UIAlertController(title: "Meme Saved to Photo Library", message: "Check your photo library for your awesome meme!", preferredStyle: .alert)
+         
+         self.present(saveMemeAlertController, animated: true, completion: nil)
+         
+         DispatchQueue.main.async { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1.2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: { () -> Void in
+                saveMemeAlertController.dismiss(animated: true, completion: nil)
+            })
+         }
+        
     }
+    
+    
+    
     @IBAction func colorSliderAction(_ sender: AnyObject)
     {
         let colorValue = CGFloat(colorSilder.value)

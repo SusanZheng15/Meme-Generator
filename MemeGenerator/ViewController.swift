@@ -9,12 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let api = APIClient()
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIClient.getMemeInfo { (dictionary) in
+        
+        api.getMemeInfo { (dictionary) in
             print(dictionary)
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

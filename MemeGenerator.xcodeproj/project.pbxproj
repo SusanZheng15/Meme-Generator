@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B874D631DC790E30091326D /* Datastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B874D621DC790E30091326D /* Datastore.swift */; };
+		1B874D651DC791A90091326D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B874D641DC791A90091326D /* Meme.swift */; };
 		1BC2DFCA1DC500F400CBD7F2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2DFC91DC500F400CBD7F2 /* APIClient.swift */; };
 		1BCCF4911DC29503008533B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCF4901DC29503008533B4 /* AppDelegate.swift */; };
 		1BCCF4931DC29503008533B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCF4921DC29503008533B4 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B874D621DC790E30091326D /* Datastore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datastore.swift; sourceTree = "<group>"; };
+		1B874D641DC791A90091326D /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		1BC2DFC91DC500F400CBD7F2 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1BCCF48D1DC29503008533B4 /* MemeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BCCF4901DC29503008533B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 			children = (
 				1BCCF4901DC29503008533B4 /* AppDelegate.swift */,
 				1BCCF4921DC29503008533B4 /* ViewController.swift */,
+				1B874D621DC790E30091326D /* Datastore.swift */,
+				1B874D641DC791A90091326D /* Meme.swift */,
 				1BC2DFC91DC500F400CBD7F2 /* APIClient.swift */,
 				1BCCF4941DC29503008533B4 /* Main.storyboard */,
 				1BCCF4971DC29503008533B4 /* Assets.xcassets */,
@@ -141,8 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BCCF4931DC29503008533B4 /* ViewController.swift in Sources */,
+				1B874D631DC790E30091326D /* Datastore.swift in Sources */,
 				1BCCF4911DC29503008533B4 /* AppDelegate.swift in Sources */,
 				1BC2DFCA1DC500F400CBD7F2 /* APIClient.swift in Sources */,
+				1B874D651DC791A90091326D /* Meme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

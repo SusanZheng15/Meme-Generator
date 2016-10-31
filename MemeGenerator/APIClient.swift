@@ -10,7 +10,11 @@ import Foundation
 
 class APIClient
 {
-    class func getMemeInfo(completion: @escaping (NSDictionary)->())
+    
+    
+    var memesArray : [meme] = []
+    
+    func getMemeInfo(completion: @escaping (NSArray)->())
     {
         let urlString = "https://api.imgflip.com/get_memes"
         
@@ -27,7 +31,22 @@ class APIClient
                 let json = try JSONSerialization.jsonObject(with: unwrappedData, options: []) as? NSDictionary
                 
                 guard let dictionary = json else {return}
-                completion(dictionary)
+                
+                let dataDictionary = dictionary["data"] as? NSDictionary
+                
+                guard let data = dataDictionary else {return}
+                
+                let memes = data["memes"] as? NSArray
+                
+                guard let memesArray = memes else {return}
+                
+                for theMemes in memesArray
+                {
+                    let memesVariables = meme.init(dictionary: theMemes as! NSDictionary)
+                    self.memesArray.append(memesVariables)
+                    completion(memesArray)
+                }
+                
             }
             catch
             {

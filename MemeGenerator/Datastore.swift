@@ -8,3 +8,23 @@
 
 import Foundation
 
+class Datastore
+{
+    let api = APIClient.sharedInstance
+    
+    static let sharedInstance = Datastore()
+
+    var memeArray: [meme] = []
+    
+    func getMemes(completion: @escaping (NSArray)->())
+    {
+        api.getMemeInfo { (array) in
+            for eachMeme in array
+            {
+                let theMeme = meme.init(dictionary: eachMeme as! NSDictionary)
+                self.memeArray.append(theMeme)
+                completion(array)
+            }
+        }
+    }
+}

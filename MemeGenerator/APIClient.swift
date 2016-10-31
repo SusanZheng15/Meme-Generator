@@ -10,7 +10,7 @@ import Foundation
 
 class APIClient
 {
-    
+    static let sharedInstance = APIClient()
     
     var memesArray : [meme] = []
     
@@ -40,12 +40,7 @@ class APIClient
                 
                 guard let memesArray = memes else {return}
                 
-                for theMemes in memesArray
-                {
-                    let memesVariables = meme.init(dictionary: theMemes as! NSDictionary)
-                    self.memesArray.append(memesVariables)
-                    completion(memesArray)
-                }
+                completion(memesArray)
                 
             }
             catch

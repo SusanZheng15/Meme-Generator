@@ -32,6 +32,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         
     }
+    
+    override func viewWillLayoutSubviews()
+    {
+        super.viewWillLayoutSubviews()
+        
+        guard let flowLayout = memeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        
+        if UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) {
+            //landscape
+        } else {
+            //portrait
+        }
+        
+        flowLayout.invalidateLayout()
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
@@ -42,29 +59,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memesCell", for: indexPath) as! memeCollectionCellCollectionViewCell
         
-        if let imageURLString = self.store.memeArray[indexPath.row].url
+        let data = self.store.memeArray[indexPath.row].image
+        
+        if let unwrappedData = data
         {
-            let url = URL(string: imageURLString)
-            
-            if let unwrappedURL = url
-            {
-                DispatchQueue.main.async(execute:
-                {
-                    let data = try? Data.init(contentsOf: unwrappedURL)
-                    
-                    if let unwrappedData = data
-                    {
-                        cell.memeImages.image = UIImage.init(data: unwrappedData)
-                    }
-                })
-                
-            }
+            cell.memeImages.image = UIImage.init(data: unwrappedData)
         }
         
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
         
         return cell
     }
   
+    
 
 }
 

@@ -13,6 +13,7 @@ class meme
     var id: String?
     var name: String?
     var url: String?
+    var image: Data?
     
     init(dictionary: NSDictionary)
     {
@@ -27,6 +28,15 @@ class meme
         if let memeURL = dictionary["url"]
         {
             self.url = memeURL as? String
+            
+            let url = URL(string: self.url!)
+            
+            if let unwrappedURL = url
+            {
+                self.image = try? Data.init(contentsOf: unwrappedURL)
+            }
         }
+        
+        
     }
 }

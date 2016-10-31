@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AssetsLibrary
+import SystemConfiguration
+
 
 class EditMeme: UIViewController, UITextFieldDelegate
 {
@@ -17,6 +20,11 @@ class EditMeme: UIViewController, UITextFieldDelegate
     @IBOutlet weak var writtenTextView: UITextView!
     @IBOutlet weak var editTextField: UITextField!
     @IBOutlet weak var textSlider: UISlider!
+    
+    var textViewTouched = UIGestureRecognizer()
+    
+     var location = CGPoint(x: 0, y: 0)
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -29,9 +37,23 @@ class EditMeme: UIViewController, UITextFieldDelegate
         {
             self.memeImage.image = UIImage.init(data: data)
         }
-     
-      
+        self.writtenTextView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        self.textViewTouched = UIGestureRecognizer(target: self, action: #selector(EditMeme.touchesBegan(_:with:)))
+        
+        self.writtenTextView.addGestureRecognizer(textViewTouched)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "save", style: .done, target: self, action: #selector(EditMeme.saveMeme))
+        
+        
     }
+    
+    func saveMeme()
+    {
+        UIImageWriteToSavedPhotosAlbum(self.memeImage.image!, self, nil, nil)
+    }
+    
     @IBAction func textSizeSlider(_ sender: AnyObject)
     {
         self.writtenTextView.font = UIFont.systemFont(ofSize: CGFloat(textSlider.value))
@@ -42,7 +64,20 @@ class EditMeme: UIViewController, UITextFieldDelegate
         self.writtenTextView.text = editTextField.text
         return true
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        let touch : UITouch = touches.first as UITouch!
+        location = touch.location(in: self.view)
+        writtenTextView.center = location
+    }
 
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        let touch : UITouch = touches.first as UITouch!
+        location = touch.location(in: self.view)
+        writtenTextView.center = location
+    }
     /*
     // MARK: - Navigation
 

@@ -91,34 +91,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j21-5D-TiC">
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="GSl-Qg-i3S">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="10" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="GSl-Qg-i3S">
                                 <connections>
                                     <action selector="textSizeSlider:" destination="Pbt-81-Ama" eventType="valueChanged" id="j8q-TQ-kPx"/>
                                 </connections>
                             </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j21-5D-TiC">
+                                <color key="backgroundColor" red="0.074659351720000003" green="1" blue="0.51637633080000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="KkZ-HQ-Jac"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="hu7-wf-Ks1" secondAttribute="trailing" constant="22" id="4Kd-MA-EhM"/>
-                            <constraint firstItem="j21-5D-TiC" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" constant="154" id="4LK-Jr-AZp"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leading" id="4iY-fZ-L3w"/>
-                            <constraint firstItem="j21-5D-TiC" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="51" id="4u7-SG-OgP"/>
+                            <constraint firstItem="j21-5D-TiC" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="-16" id="4u7-SG-OgP"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="top" secondItem="he4-9x-4Ev" secondAttribute="bottom" constant="32" id="6bv-vi-WGv"/>
+                            <constraint firstItem="j21-5D-TiC" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="6hK-ph-lEB"/>
                             <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="hu7-wf-Ks1" secondAttribute="bottom" constant="104" id="9Xc-EV-Gvi"/>
-                            <constraint firstItem="j21-5D-TiC" firstAttribute="centerX" secondItem="he4-9x-4Ev" secondAttribute="centerX" id="BhB-XD-5EH"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="21" id="EU2-rh-dSg"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" id="EVE-YY-Jy6"/>
                             <constraint firstAttribute="bottom" secondItem="GSl-Qg-i3S" secondAttribute="bottom" constant="20" symbolic="YES" id="HRD-DG-O2i"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" id="JOn-s6-XAg"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" id="V5R-ma-vNP"/>
+                            <constraint firstItem="j21-5D-TiC" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-20" id="d7O-oJ-hZU"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.75" constant="-64" id="dBI-f4-Ygl"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="fFM-xS-o7W"/>
+                            <constraint firstItem="j21-5D-TiC" firstAttribute="centerX" secondItem="Ocb-pQ-1up" secondAttribute="centerX" id="fT6-af-DJ3"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="leading" secondItem="hu7-wf-Ks1" secondAttribute="leading" id="mYS-v1-NJv"/>
-                            <constraint firstItem="j21-5D-TiC" firstAttribute="centerY" secondItem="he4-9x-4Ev" secondAttribute="centerY" id="tT7-FV-NV3"/>
                         </constraints>
                     </view>
                     <connections>

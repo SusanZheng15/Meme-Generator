@@ -102,15 +102,36 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui7-I0-lg5">
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-FZ-XmV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="A5y-ZP-g4f"/>
+                                    <constraint firstAttribute="width" constant="105" id="YWK-sZ-npT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Font Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-Nt-tli">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="OYA-o0-DQY"/>
+                                    <constraint firstAttribute="width" constant="135" id="vGO-Yy-agr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="5aO-Nt-tli" secondAttribute="bottom" constant="35" id="15H-MJ-sRa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5aO-Nt-tli" secondAttribute="trailing" constant="187" id="17n-NQ-8zh"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="1FI-j4-XHX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hu7-wf-Ks1" secondAttribute="trailing" constant="22" id="4Kd-MA-EhM"/>
+                            <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="dfe-FZ-XmV" secondAttribute="bottom" constant="75" id="4Kv-FT-HQs"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leading" id="4iY-fZ-L3w"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="top" secondItem="he4-9x-4Ev" secondAttribute="bottom" constant="32" id="6bv-vi-WGv"/>
                             <constraint firstItem="mVA-fX-LsH" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" id="85f-OJ-3Bf"/>
@@ -123,11 +144,14 @@
                             <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="mVA-fX-LsH" secondAttribute="bottom" constant="58" id="Lwz-NV-h6b"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" id="V5R-ma-vNP"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-39" id="XMk-Px-A0G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dfe-FZ-XmV" secondAttribute="trailing" constant="217" id="aB1-Q1-eOy"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.33" constant="-23.110000000000014" id="b7G-G6-S65"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.75" constant="-64" id="dBI-f4-Ygl"/>
+                            <constraint firstItem="5aO-Nt-tli" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="21" id="ech-FV-3yx"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="centerX" secondItem="Ocb-pQ-1up" secondAttribute="centerX" id="epi-X0-1iR"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="fFM-xS-o7W"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="leading" secondItem="hu7-wf-Ks1" secondAttribute="leading" id="mYS-v1-NJv"/>
+                            <constraint firstItem="dfe-FZ-XmV" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="21" id="v8J-5k-du2"/>
                         </constraints>
                     </view>
                     <connections>

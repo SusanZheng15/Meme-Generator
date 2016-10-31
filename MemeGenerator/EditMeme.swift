@@ -8,30 +8,40 @@
 
 import UIKit
 
-class EditMeme: UIViewController
+class EditMeme: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var memeImage: UIImageView!
     
     var selectedMeme : meme?
     
+    @IBOutlet weak var writtenTextView: UITextView!
+    @IBOutlet weak var editTextField: UITextField!
+    @IBOutlet weak var textSlider: UISlider!
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         self.title = selectedMeme?.name
+        
+        self.editTextField.delegate = self
 
         if let data = selectedMeme?.image
         {
             self.memeImage.image = UIImage.init(data: data)
         }
-        
+     
+      
+    }
+    @IBAction func textSizeSlider(_ sender: AnyObject)
+    {
+        self.writtenTextView.font = UIFont.systemFont(ofSize: CGFloat(textSlider.value))
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        self.writtenTextView.text = editTextField.text
+        return true
     }
-    
 
     /*
     // MARK: - Navigation

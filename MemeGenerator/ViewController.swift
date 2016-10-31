@@ -30,7 +30,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             })
             
         }
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "cameraicon (1).png"), style: .done, target: self, action: #selector(ViewController.takePicture))
         
     }
     
@@ -53,6 +53,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     
    
+    func takePicture()
+    {
+        print("taking pic")
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {

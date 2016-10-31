@@ -43,5 +43,7 @@
 	</array>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Save meme to Photo Library</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Take Picture for your own personal meme</string>
 </dict>
 </plist>

@@ -2,25 +2,28 @@
 //  EditMeme.swift
 //  MemeGenerator
 //
-//  Created by Flatiron School on 10/31/16.
+//  Created by Susan Zheng on 10/31/16.
 //  Copyright © 2016 Susan Zheng. All rights reserved.
 //
 
 import UIKit
 import AssetsLibrary
 import SystemConfiguration
+import AVFoundation
 
 
 class EditMeme: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var memeImage: UIImageView!
+    @IBOutlet weak var memeLabel: UILabel!
     
     var selectedMeme : meme?
+    let memeImageOutput = AVCapturePhotoOutput()
     
-    @IBOutlet weak var writtenTextView: UITextView!
     @IBOutlet weak var editTextField: UITextField!
     @IBOutlet weak var textSlider: UISlider!
     
+    @IBOutlet weak var colorSilder: UISlider!
     var textViewTouched = UIGestureRecognizer()
     
      var location = CGPoint(x: 0, y: 0)
@@ -37,12 +40,12 @@ class EditMeme: UIViewController, UITextFieldDelegate
         {
             self.memeImage.image = UIImage.init(data: data)
         }
-        self.writtenTextView.translatesAutoresizingMaskIntoConstraints = false
+        self.memeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         
         self.textViewTouched = UIGestureRecognizer(target: self, action: #selector(EditMeme.touchesBegan(_:with:)))
         
-        self.writtenTextView.addGestureRecognizer(textViewTouched)
+        self.memeLabel.addGestureRecognizer(textViewTouched)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "save", style: .done, target: self, action: #selector(EditMeme.saveMeme))
         
@@ -51,17 +54,56 @@ class EditMeme: UIViewController, UITextFieldDelegate
     
     func saveMeme()
     {
-        UIImageWriteToSavedPhotosAlbum(self.memeImage.image!, self, nil, nil)
+        let scale = UIScreen.main.scale
+        let layer = UIApplication.shared.keyWindow!.layer
+         self.navigationController?.isNavigationBarHidden = true
+        
+        UIGraphicsBeginImageContextWithOptions(CGRect(x:0, y: 50, width: self.view.frame.width, height: self.view.frame.height - 200).size, false, scale)
+        
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        //Save it to the camera roll
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        
+       self.navigationController?.isNavigationBarHidden = false
+    }
+    @IBAction func colorSliderAction(_ sender: AnyObject)
+    {
+        let colorValue = CGFloat(colorSilder.value)
+        let color = UIColor(hue: colorValue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+        
+        self.colorSilder.minimumTrackTintColor = color
+        self.colorSilder.maximumTrackTintColor = color
+        self.colorSilder.minimumTrackTintColor = color
+        self.colorSilder.maximumTrackTintColor = color
+        self.memeLabel.textColor = color
+        
+        if colorSilder.value == 0
+        {
+            self.memeLabel.textColor = UIColor.white
+            self.colorSilder.minimumTrackTintColor = UIColor.white
+            self.colorSilder.maximumTrackTintColor = UIColor.white
+        }
+        if colorSilder.value == 1
+        {
+            self.memeLabel.textColor = UIColor.black
+            self.colorSilder.minimumTrackTintColor = UIColor.black
+            self.colorSilder.maximumTrackTintColor = UIColor.black
+        }
     }
     
     @IBAction func textSizeSlider(_ sender: AnyObject)
     {
-        self.writtenTextView.font = UIFont.systemFont(ofSize: CGFloat(textSlider.value))
+        self.memeLabel.font = UIFont.systemFont(ofSize: CGFloat(textSlider.value))
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
-        self.writtenTextView.text = editTextField.text
+        self.memeLabel.text = editTextField.text
+        self.memeImage.addSubview(memeLabel)
         return true
     }
     
@@ -69,14 +111,14 @@ class EditMeme: UIViewController, UITextFieldDelegate
     {
         let touch : UITouch = touches.first as UITouch!
         location = touch.location(in: self.view)
-        writtenTextView.center = location
+        memeLabel.center = location
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         let touch : UITouch = touches.first as UITouch!
         location = touch.location(in: self.view)
-        writtenTextView.center = location
+        memeLabel.center = location
     }
     /*
     // MARK: - Navigation

@@ -2,7 +2,7 @@
 //  Datastore.swift
 //  MemeGenerator
 //
-//  Created by Flatiron School on 10/31/16.
+//  Created by Susan Zheng on 10/31/16.
 //  Copyright © 2016 Susan Zheng. All rights reserved.
 //
 

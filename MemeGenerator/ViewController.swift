@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
    
     let store = Datastore.sharedInstance
@@ -21,6 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.memeCollectionView.delegate = self
         self.memeCollectionView.dataSource = self
+    
         
         store.getMemes { (array) in
             
@@ -50,6 +51,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         flowLayout.invalidateLayout()
     }
 
+    
+   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return self.store.memeArray.count
@@ -72,7 +76,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
   
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        var itemsCount : CGFloat = 3.0
+        if UIApplication.shared.statusBarOrientation != UIInterfaceOrientation.portrait
+        {
+            itemsCount = 3.0
+        }
+        return CGSize(width: self.view.frame.width/itemsCount - 1, height: 240/130 * (self.view.frame.width/itemsCount - 1));
+    }
 
 }
 

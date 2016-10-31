@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eF2-LX-mXn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r5K-xb-o7q">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -34,12 +34,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vbm-Fk-903">
-                                                    <frame key="frameInset" width="135" height="170"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vbm-Fk-903"/>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="vbm-Fk-903" secondAttribute="bottom" id="CK0-sN-Kst"/>
+                                            <constraint firstAttribute="trailing" secondItem="vbm-Fk-903" secondAttribute="trailing" id="Esk-6X-9EQ"/>
+                                            <constraint firstItem="vbm-Fk-903" firstAttribute="top" secondItem="KLW-dY-rT0" secondAttribute="top" id="Q29-7Q-BH5"/>
+                                            <constraint firstItem="vbm-Fk-903" firstAttribute="leading" secondItem="KLW-dY-rT0" secondAttribute="leading" id="W8i-9E-UOm"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="memeImages" destination="vbm-Fk-903" id="fZk-rj-iPu"/>
                                         </connections>
@@ -49,10 +52,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="M16-CJ-InW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="32" id="Pxg-bE-h8c"/>
-                            <constraint firstItem="M16-CJ-InW" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-64" id="VAD-EY-VKs"/>
+                            <constraint firstItem="M16-CJ-InW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LNI-YH-5Zm"/>
+                            <constraint firstItem="M16-CJ-InW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Pxg-bE-h8c"/>
                             <constraint firstItem="M16-CJ-InW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X7u-1b-eDD"/>
-                            <constraint firstItem="M16-CJ-InW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ud5-Yi-fCD"/>
+                            <constraint firstItem="M16-CJ-InW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="fpd-4J-TS9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QR2-Yp-d9l"/>
@@ -62,25 +65,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="101.19940029985008"/>
+            <point key="canvasLocation" x="2015.2" y="101.19940029985008"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="XpH-VV-9DD">
+        <scene sceneID="MwT-At-rC3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eF2-LX-mXn" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r5K-xb-o7q" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dfv-pe-hOa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d8a-zi-ZUY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yBq-8y-of8"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RYa-cs-r56"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zA6-r1-Sdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TZ7-OM-IAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="-581.55922038980509"/>
+            <point key="canvasLocation" x="1076" y="101.19940029985008"/>
         </scene>
     </scenes>
 </document>

@@ -12,19 +12,32 @@ import SystemConfiguration
 import AVFoundation
 
 
-class EditMeme: UIViewController, UITextFieldDelegate
+class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var memeLabel: UILabel!
     @IBOutlet weak var editTextField: UITextField!
     @IBOutlet weak var textSlider: UISlider!
     @IBOutlet weak var colorSilder: UISlider!
+    @IBOutlet weak var usePhotoLibraryOutlet: UIButton!
+    @IBOutlet weak var useCameraOutlet: UIButton!
+    @IBOutlet weak var changeColorLabel: UILabel!
+    @IBOutlet weak var changeFontSizeLabel: UILabel!
+    
     
     var selectedMeme : meme?
     
     var textViewTouched = UIGestureRecognizer()
     
     var location = CGPoint(x: 0, y: 0)
+    
+    var captureSession = AVCaptureSession();
+    var sessionOutput = AVCapturePhotoOutput();
+    var sessionOutputSetting = AVCapturePhotoSettings(format: [AVVideoCodecKey:AVVideoCodecJPEG]);
+    var previewLayer = AVCaptureVideoPreviewLayer();
+    
+    let imagePicker = UIImagePickerController()
+    
     
     override func viewDidLoad()
     {
@@ -44,13 +57,102 @@ class EditMeme: UIViewController, UITextFieldDelegate
         
         self.memeLabel.addGestureRecognizer(textViewTouched)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditMeme.tap(_:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "righticon (2).png"), style: .done, target: self, action: #selector(EditMeme.saveMeme))
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "customBackButton (1).png"), style: .done, target: self, action: #selector(EditMeme.backButtonPressed(sender:)))
+        
+        if self.memeImage.image == nil
+        {
+            self.colorSilder.isHidden = true
+            self.textSlider.isHidden = true
+            self.editTextField.isHidden = true
+            self.changeColorLabel.isHidden = true
+            self.changeFontSizeLabel.isHidden = true
+            self.useCameraOutlet.isHidden = false
+            self.usePhotoLibraryOutlet.isHidden = false
+        }
+        else
+        {
+            self.useCameraOutlet.isHidden = true
+            self.usePhotoLibraryOutlet.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func useCameraRollAction(_ sender: AnyObject)
+    {
+        getToCameraRoll()
     }
     
     
+    @IBAction func usePhotoLibraryAction(_ sender: AnyObject)
+    {
+        getToPhotoLibrary()
+    }
+    
+
+    func getToCameraRoll()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
+        {
+            
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.delegate = self
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func getToPhotoLibrary()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func tap(_ gesture: UITapGestureRecognizer)
+    {
+        self.editTextField.resignFirstResponder()
+    }
+    
+
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!)
+    {
+        self.memeImage.image = image
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        self.useCameraOutlet.isHidden = true
+        self.usePhotoLibraryOutlet.isHidden = true
+        
+        self.colorSilder.isHidden = false
+        self.textSlider.isHidden = false
+        self.editTextField.isHidden = false
+        self.changeColorLabel.isHidden = false
+        self.changeFontSizeLabel.isHidden = false
+        self.useCameraOutlet.isHidden = false
+        self.usePhotoLibraryOutlet.isHidden = false
+        
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+ 
     func backButtonPressed(sender:UIButton)
     {
         navigationController?.popViewController(animated: true)
@@ -71,7 +173,7 @@ class EditMeme: UIViewController, UITextFieldDelegate
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
-       self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         
         
          let saveMemeAlertController = UIAlertController(title: "Meme Saved to Photo Library", message: "Check your photo library for your awesome meme!", preferredStyle: .alert)
@@ -90,6 +192,7 @@ class EditMeme: UIViewController, UITextFieldDelegate
     
     @IBAction func colorSliderAction(_ sender: AnyObject)
     {
+        
         let colorValue = CGFloat(colorSilder.value)
         let color = UIColor(hue: colorValue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
         
@@ -111,7 +214,9 @@ class EditMeme: UIViewController, UITextFieldDelegate
             self.colorSilder.minimumTrackTintColor = UIColor.black
             self.colorSilder.maximumTrackTintColor = UIColor.black
         }
+        
     }
+    
     
     @IBAction func textSizeSlider(_ sender: AnyObject)
     {
@@ -122,6 +227,7 @@ class EditMeme: UIViewController, UITextFieldDelegate
     {
         self.memeLabel.text = editTextField.text
         self.memeImage.addSubview(memeLabel)
+        self.editTextField.resignFirstResponder()
         return true
     }
     
@@ -138,14 +244,6 @@ class EditMeme: UIViewController, UITextFieldDelegate
         location = touch.location(in: self.view)
         memeLabel.center = location
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

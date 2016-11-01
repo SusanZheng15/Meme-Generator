@@ -56,6 +56,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func takePicture()
     {
         print("taking pic")
+        performSegue(withIdentifier: "cameraSegue", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int

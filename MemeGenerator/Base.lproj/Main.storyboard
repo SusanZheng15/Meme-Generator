@@ -64,6 +64,7 @@
                     <navigationItem key="navigationItem" id="QR2-Yp-d9l"/>
                     <connections>
                         <outlet property="memeCollectionView" destination="M16-CJ-InW" id="JWP-qU-Ilv"/>
+                        <segue destination="Pbt-81-Ama" kind="show" identifier="cameraSegue" id="MdE-Ce-ewY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -124,6 +125,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVN-Av-Dpw">
+                                <state key="normal" title="Use Camera"/>
+                                <connections>
+                                    <action selector="useCameraRollAction:" destination="Pbt-81-Ama" eventType="touchUpInside" id="sIq-Sj-GYm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmm-ei-Ol7">
+                                <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="usePhotoLibraryAction:" destination="Pbt-81-Ama" eventType="touchUpInside" id="Gvs-h3-RwF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -135,6 +148,8 @@
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leading" id="4iY-fZ-L3w"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="top" secondItem="he4-9x-4Ev" secondAttribute="bottom" constant="32" id="6bv-vi-WGv"/>
                             <constraint firstItem="mVA-fX-LsH" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" id="85f-OJ-3Bf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cmm-ei-Ol7" secondAttribute="trailing" constant="29" id="8Wb-AB-UYf"/>
+                            <constraint firstItem="gVN-Av-Dpw" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="43" id="8sE-au-dP9"/>
                             <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="hu7-wf-Ks1" secondAttribute="bottom" constant="104" id="9Xc-EV-Gvi"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="21" id="EU2-rh-dSg"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" id="EVE-YY-Jy6"/>
@@ -142,24 +157,32 @@
                             <constraint firstAttribute="bottom" secondItem="GSl-Qg-i3S" secondAttribute="bottom" constant="20" symbolic="YES" id="HRD-DG-O2i"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" id="JOn-s6-XAg"/>
                             <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="mVA-fX-LsH" secondAttribute="bottom" constant="58" id="Lwz-NV-h6b"/>
+                            <constraint firstItem="Cmm-ei-Ol7" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" constant="215" id="UXs-NO-UZi"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" id="V5R-ma-vNP"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-39" id="XMk-Px-A0G"/>
+                            <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="Cmm-ei-Ol7" secondAttribute="bottom" constant="358" id="ZcJ-Bc-nsN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dfe-FZ-XmV" secondAttribute="trailing" constant="217" id="aB1-Q1-eOy"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.33" constant="-23.110000000000014" id="b7G-G6-S65"/>
+                            <constraint firstItem="gVN-Av-Dpw" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" constant="215" id="cEn-jl-nAu"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.75" constant="-64" id="dBI-f4-Ygl"/>
                             <constraint firstItem="5aO-Nt-tli" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="21" id="ech-FV-3yx"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="centerX" secondItem="Ocb-pQ-1up" secondAttribute="centerX" id="epi-X0-1iR"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="fFM-xS-o7W"/>
+                            <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="gVN-Av-Dpw" secondAttribute="bottom" constant="358" id="fm7-NG-iIY"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="leading" secondItem="hu7-wf-Ks1" secondAttribute="leading" id="mYS-v1-NJv"/>
                             <constraint firstItem="dfe-FZ-XmV" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="21" id="v8J-5k-du2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changeColorLabel" destination="dfe-FZ-XmV" id="s9L-WE-EZC"/>
+                        <outlet property="changeFontSizeLabel" destination="5aO-Nt-tli" id="hwB-68-Ygu"/>
                         <outlet property="colorSilder" destination="mVA-fX-LsH" id="1ka-8G-Fua"/>
                         <outlet property="editTextField" destination="hu7-wf-Ks1" id="cnk-xm-ry6"/>
                         <outlet property="memeImage" destination="he4-9x-4Ev" id="N5r-8q-B6Q"/>
                         <outlet property="memeLabel" destination="ui7-I0-lg5" id="dka-Gb-OUF"/>
                         <outlet property="textSlider" destination="GSl-Qg-i3S" id="n5e-lR-KF7"/>
+                        <outlet property="useCameraOutlet" destination="gVN-Av-Dpw" id="hdB-Bh-cq1"/>
+                        <outlet property="usePhotoLibraryOutlet" destination="Cmm-ei-Ol7" id="y7f-5b-dWp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znL-cj-0pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +194,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r5K-xb-o7q" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d8a-zi-ZUY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d8a-zi-ZUY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -190,4 +213,7 @@
             <point key="canvasLocation" x="1076" y="101.19940029985008"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MdE-Ce-ewY"/>
+    </inferredMetricsTieBreakers>
 </document>

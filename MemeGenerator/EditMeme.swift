@@ -241,6 +241,12 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         
         return true
     }
+    
+    @IBAction func memeTextField(_ sender: AnyObject)
+    {
+        self.memeLabel.text = editTextField.text
+    }
+    
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
     {

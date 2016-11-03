@@ -88,6 +88,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="memeTextField:" destination="Pbt-81-Ama" eventType="editingChanged" id="ork-pQ-al0"/>
+                                </connections>
                             </textField>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="42.5" minValue="10" maxValue="75" translatesAutoresizingMaskIntoConstraints="NO" id="GSl-Qg-i3S">
                                 <connections>
@@ -161,10 +164,10 @@
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" id="JOn-s6-XAg"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="top" secondItem="mVA-fX-LsH" secondAttribute="bottom" constant="8" symbolic="YES" id="SG9-Mm-uuG"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" constant="43" id="V5R-ma-vNP"/>
-                            <constraint firstItem="ui7-I0-lg5" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-11" id="XMk-Px-A0G"/>
+                            <constraint firstItem="ui7-I0-lg5" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-70" id="XMk-Px-A0G"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="centerX" secondItem="ui7-I0-lg5" secondAttribute="centerX" id="ZBk-k6-ed2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dfe-FZ-XmV" secondAttribute="trailing" constant="238" id="aB1-Q1-eOy"/>
-                            <constraint firstItem="ui7-I0-lg5" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.33" constant="-185.11000000000001" id="b7G-G6-S65"/>
+                            <constraint firstItem="ui7-I0-lg5" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.33" constant="30.889999999999986" id="b7G-G6-S65"/>
                             <constraint firstItem="gVN-Av-Dpw" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="34" id="cqR-bz-jlw"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.75" constant="-64" id="dBI-f4-Ygl"/>
                             <constraint firstItem="mVA-fX-LsH" firstAttribute="leading" secondItem="hu7-wf-Ks1" secondAttribute="leading" id="e8g-Qs-3jY"/>

@@ -119,7 +119,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmm-ei-Ol7">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="vbn-bC-wLH"/>
+                                    <constraint firstAttribute="width" constant="122" id="vbn-bC-wLH"/>
                                 </constraints>
                                 <state key="normal" title="Photo Library">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -135,7 +135,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVN-Av-Dpw">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="dom-T4-iU3"/>
+                                    <constraint firstAttribute="width" constant="118" id="dom-T4-iU3"/>
                                 </constraints>
                                 <state key="normal" title="Use Camera">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,6 +147,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstItem="gVN-Av-Dpw" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" constant="215" id="02H-38-14I"/>
                             <constraint firstItem="IIk-6o-UKS" firstAttribute="top" secondItem="5aO-Nt-tli" secondAttribute="bottom" constant="39" id="15H-MJ-sRa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5aO-Nt-tli" secondAttribute="trailing" constant="208" id="17n-NQ-8zh"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="1FI-j4-XHX"/>
@@ -158,14 +159,13 @@
                             <constraint firstItem="mVA-fX-LsH" firstAttribute="trailing" secondItem="hu7-wf-Ks1" secondAttribute="trailing" id="FUg-Fe-Hvk"/>
                             <constraint firstAttribute="bottom" secondItem="GSl-Qg-i3S" secondAttribute="bottom" constant="20" symbolic="YES" id="HRD-DG-O2i"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" id="JOn-s6-XAg"/>
-                            <constraint firstItem="Cmm-ei-Ol7" firstAttribute="baseline" secondItem="gVN-Av-Dpw" secondAttribute="baseline" id="LTZ-1d-Jer"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="top" secondItem="mVA-fX-LsH" secondAttribute="bottom" constant="8" symbolic="YES" id="SG9-Mm-uuG"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" constant="43" id="V5R-ma-vNP"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-11" id="XMk-Px-A0G"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="centerX" secondItem="ui7-I0-lg5" secondAttribute="centerX" id="ZBk-k6-ed2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dfe-FZ-XmV" secondAttribute="trailing" constant="238" id="aB1-Q1-eOy"/>
                             <constraint firstItem="ui7-I0-lg5" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.33" constant="-185.11000000000001" id="b7G-G6-S65"/>
-                            <constraint firstItem="Cmm-ei-Ol7" firstAttribute="leading" secondItem="gVN-Av-Dpw" secondAttribute="trailing" constant="67" id="cYE-lA-bHX"/>
+                            <constraint firstItem="gVN-Av-Dpw" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="34" id="cqR-bz-jlw"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.75" constant="-64" id="dBI-f4-Ygl"/>
                             <constraint firstItem="mVA-fX-LsH" firstAttribute="leading" secondItem="hu7-wf-Ks1" secondAttribute="leading" id="e8g-Qs-3jY"/>
                             <constraint firstItem="5aO-Nt-tli" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" id="ech-FV-3yx"/>

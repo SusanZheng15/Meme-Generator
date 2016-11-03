@@ -253,6 +253,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         let touch : UITouch = touches.first as UITouch!
         location = touch.location(in: self.view)
         memeLabel.center = location
+     
     }
     
 

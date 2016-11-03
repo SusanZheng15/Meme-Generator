@@ -24,18 +24,9 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     @IBOutlet weak var changeColorLabel: UILabel!
     @IBOutlet weak var changeFontSizeLabel: UILabel!
     
-    
     var selectedMeme : meme?
-    
     var textViewTouched = UIGestureRecognizer()
-    
     var location = CGPoint(x: 0, y: 0)
-    
-    var captureSession = AVCaptureSession();
-    var sessionOutput = AVCapturePhotoOutput();
-    var sessionOutputSetting = AVCapturePhotoSettings(format: [AVVideoCodecKey:AVVideoCodecJPEG]);
-    var previewLayer = AVCaptureVideoPreviewLayer();
-    
     let imagePicker = UIImagePickerController()
     
     
@@ -68,6 +59,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         
         if self.memeImage.image == nil
         {
+            print("theres no image")
             self.colorSilder.isHidden = true
             self.textSlider.isHidden = true
             self.editTextField.isHidden = true
@@ -76,10 +68,16 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
             self.useCameraOutlet.isHidden = false
             self.usePhotoLibraryOutlet.isHidden = false
         }
-        else
+        else if self.memeImage.image != nil
         {
+            print("theres an image")
             self.useCameraOutlet.isHidden = true
             self.usePhotoLibraryOutlet.isHidden = true
+            self.colorSilder.isHidden = false
+            self.textSlider.isHidden = false
+            self.editTextField.isHidden = false
+            self.changeColorLabel.isHidden = false
+            self.changeFontSizeLabel.isHidden = false
         }
         
     }
@@ -100,7 +98,6 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         {
-            
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             imagePicker.delegate = self
             
@@ -110,25 +107,22 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     
     func getToPhotoLibrary()
     {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)
-        {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        let imagePicked = UIImagePickerController()
+        imagePicked.delegate = self
+        imagePicked.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicked.allowsEditing = false
             
-            self.present(imagePicker, animated: true, completion: nil)
-            
-        }
+        self.present(imagePicked, animated: true, completion: nil)
     }
     
-    func tap(_ gesture: UITapGestureRecognizer)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
-        self.editTextField.resignFirstResponder()
-    }
-    
-
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!)
-    {
-        self.memeImage.image = image
+        let photoInfo = info as NSDictionary
+        
+        let img: UIImage = photoInfo.object(forKey: UIImagePickerControllerOriginalImage) as! UIImage
+        
+        self.memeImage.image = img
         
         self.dismiss(animated: true, completion: nil)
         
@@ -140,11 +134,16 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.editTextField.isHidden = false
         self.changeColorLabel.isHidden = false
         self.changeFontSizeLabel.isHidden = false
-        self.useCameraOutlet.isHidden = false
-        self.usePhotoLibraryOutlet.isHidden = false
-        
-        
+        self.useCameraOutlet.isHidden = true
+        self.usePhotoLibraryOutlet.isHidden = true
     }
+    
+    func tap(_ gesture: UITapGestureRecognizer)
+    {
+        self.editTextField.resignFirstResponder()
+    }
+    
+
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
@@ -169,6 +168,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         layer.render(in: UIGraphicsGetCurrentContext()!)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
+        memeLabel.center = location
         
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
@@ -228,14 +228,8 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.memeLabel.text = editTextField.text
         self.memeImage.addSubview(memeLabel)
         self.editTextField.resignFirstResponder()
+        
         return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        let touch : UITouch = touches.first as UITouch!
-        location = touch.location(in: self.view)
-        memeLabel.center = location
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)

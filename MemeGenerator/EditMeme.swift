@@ -57,6 +57,16 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "customBackButton (1).png"), style: .done, target: self, action: #selector(EditMeme.backButtonPressed(sender:)))
         
+        self.useCameraOutlet.layer.borderWidth = 1
+        self.useCameraOutlet.layer.borderColor = UIColor.white.cgColor
+        self.useCameraOutlet.layer.cornerRadius = 10
+        self.useCameraOutlet.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        
+        self.usePhotoLibraryOutlet.layer.borderWidth = 1
+        self.usePhotoLibraryOutlet.layer.borderColor = UIColor.white.cgColor
+        self.usePhotoLibraryOutlet.layer.cornerRadius = 10
+        self.usePhotoLibraryOutlet.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        
         if self.memeImage.image == nil
         {
             print("theres no image")

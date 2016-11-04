@@ -172,7 +172,6 @@
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.75" constant="-64" id="dBI-f4-Ygl"/>
                             <constraint firstItem="mVA-fX-LsH" firstAttribute="leading" secondItem="hu7-wf-Ks1" secondAttribute="leading" id="e8g-Qs-3jY"/>
                             <constraint firstItem="5aO-Nt-tli" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" id="ech-FV-3yx"/>
-                            <constraint firstItem="ui7-I0-lg5" firstAttribute="centerX" secondItem="Ocb-pQ-1up" secondAttribute="centerX" id="epi-X0-1iR"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="fFM-xS-o7W"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" id="fuW-Il-pfr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cmm-ei-Ol7" secondAttribute="trailing" constant="29" id="mra-Jk-W4X"/>

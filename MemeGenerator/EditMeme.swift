@@ -161,7 +161,6 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     }
     
     
- 
     func backButtonPressed(sender:UIButton)
     {
         navigationController?.popViewController(animated: true)
@@ -171,14 +170,13 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     {
         let scale = UIScreen.main.scale
         let layer = UIApplication.shared.keyWindow!.layer
-         self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         
-        UIGraphicsBeginImageContextWithOptions(CGRect(x:0, y: 50, width: self.view.frame.width, height: self.view.frame.height - 200).size, false, scale)
+        UIGraphicsBeginImageContextWithOptions(CGRect(x:0, y: 100, width: self.view.frame.width, height: self.view.frame.height - 210).size, false, scale)
         
         layer.render(in: UIGraphicsGetCurrentContext()!)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
-        memeLabel.center = location
         
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)

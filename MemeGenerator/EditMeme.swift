@@ -70,6 +70,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         if self.memeImage.image == nil
         {
             print("theres no image")
+            self.title = "Create your own meme!"
             self.colorSilder.isHidden = true
             self.textSlider.isHidden = true
             self.editTextField.isHidden = true

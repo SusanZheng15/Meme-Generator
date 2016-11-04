@@ -23,7 +23,9 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     @IBOutlet weak var useCameraOutlet: UIButton!
     @IBOutlet weak var changeColorLabel: UILabel!
     @IBOutlet weak var changeFontSizeLabel: UILabel!
+    @IBOutlet weak var secondTextField: UITextField!
     
+    @IBOutlet weak var secondMemeLabel: UILabel!
     var selectedMeme : meme?
     var textViewTouched = UIGestureRecognizer()
     var location = CGPoint(x: 0, y: 0)
@@ -246,6 +248,10 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.memeLabel.text = editTextField.text
     }
     
+    @IBAction func secondMemeTextField(_ sender: AnyObject)
+    {
+        self.secondMemeLabel.text = secondTextField.text
+    }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
     {

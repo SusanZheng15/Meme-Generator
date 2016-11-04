@@ -84,14 +84,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="he4-9x-4Ev"/>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Text here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hu7-wf-Ks1">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="memeTextField:" destination="Pbt-81-Ama" eventType="editingChanged" id="ork-pQ-al0"/>
-                                </connections>
-                            </textField>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="42.5" minValue="10" maxValue="75" translatesAutoresizingMaskIntoConstraints="NO" id="GSl-Qg-i3S">
                                 <connections>
                                     <action selector="textSizeSlider:" destination="Pbt-81-Ama" eventType="valueChanged" id="j8q-TQ-kPx"/>
@@ -147,6 +139,29 @@
                                     <action selector="useCameraRollAction:" destination="Pbt-81-Ama" eventType="touchUpInside" id="sIq-Sj-GYm"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add second text here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wak-jL-jxz">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="secondMemeTextField:" destination="Pbt-81-Ama" eventType="editingChanged" id="TZ7-h9-vfE"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBu-Jl-bZ1">
+                                <frame key="frameInset" minX="16" minY="345" width="343" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add first text here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hu7-wf-Ks1">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="memeTextField:" destination="Pbt-81-Ama" eventType="editingChanged" id="ork-pQ-al0"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -164,21 +179,23 @@
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" id="JOn-s6-XAg"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="top" secondItem="mVA-fX-LsH" secondAttribute="bottom" constant="8" symbolic="YES" id="SG9-Mm-uuG"/>
                             <constraint firstItem="GSl-Qg-i3S" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" multiplier="0.8" constant="43" id="V5R-ma-vNP"/>
-                            <constraint firstItem="ui7-I0-lg5" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-70" id="XMk-Px-A0G"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="wak-jL-jxz" secondAttribute="leading" id="XDE-zn-gUm"/>
+                            <constraint firstItem="ui7-I0-lg5" firstAttribute="centerY" secondItem="Ocb-pQ-1up" secondAttribute="centerY" constant="-110" id="XMk-Px-A0G"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="centerX" secondItem="ui7-I0-lg5" secondAttribute="centerX" id="ZBk-k6-ed2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dfe-FZ-XmV" secondAttribute="trailing" constant="238" id="aB1-Q1-eOy"/>
-                            <constraint firstItem="ui7-I0-lg5" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.33" constant="30.889999999999986" id="b7G-G6-S65"/>
+                            <constraint firstItem="ui7-I0-lg5" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.33" constant="-49.110000000000014" id="b7G-G6-S65"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wak-jL-jxz" secondAttribute="trailing" id="cRt-zh-pMp"/>
                             <constraint firstItem="gVN-Av-Dpw" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" constant="34" id="cqR-bz-jlw"/>
-                            <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.75" constant="-64" id="dBI-f4-Ygl"/>
+                            <constraint firstItem="he4-9x-4Ev" firstAttribute="height" secondItem="Ocb-pQ-1up" secondAttribute="height" multiplier="0.65" constant="-41.550000000000011" id="dBI-f4-Ygl"/>
                             <constraint firstItem="mVA-fX-LsH" firstAttribute="leading" secondItem="hu7-wf-Ks1" secondAttribute="leading" id="e8g-Qs-3jY"/>
                             <constraint firstItem="5aO-Nt-tli" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" id="ech-FV-3yx"/>
+                            <constraint firstItem="wak-jL-jxz" firstAttribute="top" secondItem="86l-6I-GhM" secondAttribute="bottom" constant="456" id="ezx-fa-fy4"/>
                             <constraint firstItem="he4-9x-4Ev" firstAttribute="width" secondItem="Ocb-pQ-1up" secondAttribute="width" id="fFM-xS-o7W"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" id="fuW-Il-pfr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cmm-ei-Ol7" secondAttribute="trailing" constant="29" id="mra-Jk-W4X"/>
                             <constraint firstItem="hu7-wf-Ks1" firstAttribute="centerX" secondItem="he4-9x-4Ev" secondAttribute="centerX" id="nDh-Yz-oAv"/>
-                            <constraint firstItem="dfe-FZ-XmV" firstAttribute="top" secondItem="hu7-wf-Ks1" secondAttribute="bottom" constant="16" id="ttX-X2-EbK"/>
+                            <constraint firstItem="dfe-FZ-XmV" firstAttribute="top" secondItem="hu7-wf-Ks1" secondAttribute="bottom" constant="58" id="ttX-X2-EbK"/>
                             <constraint firstItem="dfe-FZ-XmV" firstAttribute="leading" secondItem="Ocb-pQ-1up" secondAttribute="leadingMargin" id="v8J-5k-du2"/>
-                            <constraint firstItem="hu7-wf-Ks1" firstAttribute="top" secondItem="he4-9x-4Ev" secondAttribute="bottom" constant="22" id="vkG-yu-CED"/>
                         </constraints>
                     </view>
                     <connections>
@@ -188,6 +205,8 @@
                         <outlet property="editTextField" destination="hu7-wf-Ks1" id="cnk-xm-ry6"/>
                         <outlet property="memeImage" destination="he4-9x-4Ev" id="N5r-8q-B6Q"/>
                         <outlet property="memeLabel" destination="ui7-I0-lg5" id="dka-Gb-OUF"/>
+                        <outlet property="secondMemeLabel" destination="TBu-Jl-bZ1" id="89G-nr-l95"/>
+                        <outlet property="secondTextField" destination="wak-jL-jxz" id="ZrP-yA-EBi"/>
                         <outlet property="textSlider" destination="GSl-Qg-i3S" id="n5e-lR-KF7"/>
                         <outlet property="useCameraOutlet" destination="gVN-Av-Dpw" id="hdB-Bh-cq1"/>
                         <outlet property="usePhotoLibraryOutlet" destination="Cmm-ei-Ol7" id="y7f-5b-dWp"/>

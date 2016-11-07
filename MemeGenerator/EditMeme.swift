@@ -30,6 +30,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     var textViewTouched = UIGestureRecognizer()
     var location = CGPoint(x: 0, y: 0)
     let imagePicker = UIImagePickerController()
+    var secondLabelTouched = UIGestureRecognizer()
     
     
     override func viewDidLoad()
@@ -48,6 +49,10 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.memeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.textViewTouched = UIGestureRecognizer(target: self, action: #selector(EditMeme.touchesBegan(_:with:)))
         
+        self.secondLabelTouched = UIGestureRecognizer(target: self, action: #selector(EditMeme.touchesBegan(_:with:)))
+        
+        self.secondMemeLabel.addGestureRecognizer(secondLabelTouched)
+        
         self.memeLabel.addGestureRecognizer(textViewTouched)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditMeme.tap(_:)))
@@ -59,15 +64,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "customBackButton (1).png"), style: .done, target: self, action: #selector(EditMeme.backButtonPressed(sender:)))
         
-        self.useCameraOutlet.layer.borderWidth = 1
-        self.useCameraOutlet.layer.borderColor = UIColor.white.cgColor
-        self.useCameraOutlet.layer.cornerRadius = 10
-        self.useCameraOutlet.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        
-        self.usePhotoLibraryOutlet.layer.borderWidth = 1
-        self.usePhotoLibraryOutlet.layer.borderColor = UIColor.white.cgColor
-        self.usePhotoLibraryOutlet.layer.cornerRadius = 10
-        self.usePhotoLibraryOutlet.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        buttonLayout()
         
         if self.memeImage.image == nil
         {
@@ -80,6 +77,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
             self.changeFontSizeLabel.isHidden = true
             self.useCameraOutlet.isHidden = false
             self.usePhotoLibraryOutlet.isHidden = false
+            self.secondTextField.isHidden = true
         }
         else if self.memeImage.image != nil
         {
@@ -106,6 +104,19 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         getToPhotoLibrary()
     }
     
+    
+    func buttonLayout()
+    {
+        self.useCameraOutlet.layer.borderWidth = 1
+        self.useCameraOutlet.layer.borderColor = UIColor.white.cgColor
+        self.useCameraOutlet.layer.cornerRadius = 10
+        self.useCameraOutlet.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        
+        self.usePhotoLibraryOutlet.layer.borderWidth = 1
+        self.usePhotoLibraryOutlet.layer.borderColor = UIColor.white.cgColor
+        self.usePhotoLibraryOutlet.layer.cornerRadius = 10
+        self.usePhotoLibraryOutlet.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+    }
 
     func getToCameraRoll()
     {
@@ -259,6 +270,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         location = touch.location(in: self.view)
         memeLabel.center = location
      
+        secondMemeLabel.center = location
     }
     
 

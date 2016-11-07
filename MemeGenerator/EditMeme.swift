@@ -195,6 +195,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
+        self.memeLabel.center = location
         self.navigationController?.isNavigationBarHidden = false
         
         
@@ -207,6 +208,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
                 saveMemeAlertController.dismiss(animated: true, completion: nil)
             })
          }
+        
         
     }
     
@@ -273,5 +275,13 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         secondMemeLabel.center = location
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        let touch : UITouch = touches.first as UITouch!
+        location = touch.location(in: self.view)
+        memeLabel.center = location
+        
+        secondMemeLabel.center = location
+    }
 
 }

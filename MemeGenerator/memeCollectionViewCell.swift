@@ -1,5 +1,5 @@
 //
-//  memeCollectionCellCollectionViewCell.swift
+//  memeCollectionViewCell.swift
 //  MemeGenerator
 //
 //  Created by Susan Zheng on 10/31/16.

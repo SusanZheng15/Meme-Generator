@@ -91,7 +91,9 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
             self.changeFontSizeLabel.isHidden = false
         }
         
+        
     }
+
     
     @IBAction func useCameraRollAction(_ sender: AnyObject)
     {

@@ -34,6 +34,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(true)
+        
+        OperationQueue.main.addOperation({
+            self.memeCollectionView.reloadData()
+        })
+        
+        
+    }
     override func viewWillLayoutSubviews()
     {
         super.viewWillLayoutSubviews()

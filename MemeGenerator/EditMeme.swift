@@ -195,6 +195,8 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
+        self.memeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.removeConstraints(self.memeLabel.constraints)
         self.memeLabel.center = location
         self.navigationController?.isNavigationBarHidden = false
         
@@ -268,6 +270,9 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        
+        self.memeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.removeConstraints(self.memeLabel.constraints)
         let touch : UITouch = touches.first as UITouch!
         location = touch.location(in: self.view)
         memeLabel.center = location

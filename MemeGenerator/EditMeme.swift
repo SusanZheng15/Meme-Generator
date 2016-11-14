@@ -24,14 +24,14 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     @IBOutlet weak var changeColorLabel: UILabel!
     @IBOutlet weak var changeFontSizeLabel: UILabel!
     @IBOutlet weak var secondTextField: UITextField!
-    
     @IBOutlet weak var secondMemeLabel: UILabel!
+    
     var selectedMeme : meme?
     var textViewTouched = UIGestureRecognizer()
     var location = CGPoint(x: 0, y: 0)
     let imagePicker = UIImagePickerController()
     var secondLabelTouched = UIGestureRecognizer()
-    
+    var longPressedOnImage = UILongPressGestureRecognizer(target: self, action: #selector(EditMeme.longPressed))
     
     override func viewDidLoad()
     {
@@ -64,11 +64,12 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "customBackButton (1).png"), style: .done, target: self, action: #selector(EditMeme.backButtonPressed(sender:)))
         
+        self.memeImage.addGestureRecognizer(longPressedOnImage)
+        
         buttonLayout()
         
         if self.memeImage.image == nil
         {
-            print("theres no image")
             self.title = "Create your own meme!"
             self.colorSilder.isHidden = true
             self.textSlider.isHidden = true
@@ -81,7 +82,6 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         }
         else if self.memeImage.image != nil
         {
-            print("theres an image")
             self.useCameraOutlet.isHidden = true
             self.usePhotoLibraryOutlet.isHidden = true
             self.colorSilder.isHidden = false
@@ -94,6 +94,11 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         
     }
 
+    
+    func longPressed(sender: UILongPressGestureRecognizer)
+    {
+        print("long pressed on image")
+    }
     
     @IBAction func useCameraRollAction(_ sender: AnyObject)
     {
@@ -244,6 +249,8 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         }
         
     }
+
+    
     
     
     @IBAction func textSizeSlider(_ sender: AnyObject)

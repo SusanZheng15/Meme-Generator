@@ -31,7 +31,7 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     var location = CGPoint(x: 0, y: 0)
     let imagePicker = UIImagePickerController()
     var secondLabelTouched = UIGestureRecognizer()
-//    var longPressedOnImage = UILongPressGestureRecognizer(target: self, action: #selector(EditMeme.longPressed))
+
     
     override func viewDidLoad()
     {
@@ -64,7 +64,6 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "customBackButton (1).png"), style: .done, target: self, action: #selector(EditMeme.backButtonPressed(sender:)))
         
-//        self.memeImage.addGestureRecognizer(longPressedOnImage)
         
         buttonLayout()
         

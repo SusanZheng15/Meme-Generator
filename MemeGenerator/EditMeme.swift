@@ -94,10 +94,10 @@ class EditMeme: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     }
 
     
-    func longPressed(sender: UILongPressGestureRecognizer)
-    {
-        print("long pressed on image")
-    }
+//    func longPressed(sender: UILongPressGestureRecognizer)
+//    {
+//        print("long pressed on image")
+//    }
     
     @IBAction func useCameraRollAction(_ sender: AnyObject)
     {

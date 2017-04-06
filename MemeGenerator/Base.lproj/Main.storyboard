@@ -94,7 +94,8 @@
                                     <action selector="colorSliderAction:" destination="Pbt-81-Ama" eventType="valueChanged" id="zFJ-NG-py2"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-FZ-XmV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Slide to change Color " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-FZ-XmV">
+                                <frame key="frameInset" minX="16" minY="570" width="128" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="A5y-ZP-g4f"/>
                                     <constraint firstAttribute="width" constant="105" id="YWK-sZ-npT"/>
@@ -103,7 +104,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Font Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-Nt-tli">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide to change Font Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-Nt-tli">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="OYA-o0-DQY"/>
                                     <constraint firstAttribute="width" constant="135" id="vGO-Yy-agr"/>

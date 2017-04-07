@@ -94,8 +94,7 @@
                                     <action selector="colorSliderAction:" destination="Pbt-81-Ama" eventType="valueChanged" id="zFJ-NG-py2"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Slide to change Color " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-FZ-XmV">
-                                <frame key="frameInset" minX="16" minY="570" width="128" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide to change Color " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-FZ-XmV">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="A5y-ZP-g4f"/>
                                     <constraint firstAttribute="width" constant="105" id="YWK-sZ-npT"/>
